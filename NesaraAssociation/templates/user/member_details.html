@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="description" content="Bootstrap Admin App + jQuery">
+   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+   <title>NESARA WELFARE ASSOCIATION</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+   
+</head>
+
+<body >
+   <nav class="navbar navbar-dark bg-success">
+    <div class="align-left">
+        <div class="btn-group">
+            
+            <a class="navbar-brand" href="{% url 'home' %}">NESARA WELFARE ASSOCIATION</a>
+        </div>
+     </div>
+     <div class="align-right">
+      <div class="btn-group">
+        <!-- <button  style="bottom: 27px;" id="addpatient" class="mb-sm btn btn-primary" type="button">Add Patient</button>-->
+        <a href="{% url 'addmember' %}" class="btn btn-dark ">Add Member</a>
+         
+      </div>
+   </div>
+   </nav>    
+     <div class="container-fluid padding">
+      <div class="row welcome text-center">
+          <div class="col-12">
+              <h1>MEMBER DETAILS</h1>
+              <hr>
+              </div>
+      </div>
+  </div>
+  
+   </div>
+   </nav>
+     
+   <div class="row">
+      <div class="col">
+      <div class="card-body">
+         <form action = "" method = "GET">
+            {% csrf_token %} 
+            
+            {{ myfilter.form }} 
+            <input type="submit" value="Search"> 
+        </form> 
+        </div>
+      </div>
+   </div>
+  
+
+           <div>
+                  
+            <table class="table table-bordered">
+               <thead class="table-dark">
+                                 <tr>
+                                    <th >ID</th>
+                                    <th >Name</th>
+                                    
+                                    <th >Address</th>
+                                   
+
+                                    <th >Phone No</th>
+                                    
+                                    <th >Site No</th>
+                                    
+                                      
+                                   
+                                 </tr>
+                              </thead>
+                              
+                           
+                           <tbody>
+                              
+                           {% for member in NesaraAssociation.all %}
+                           <tr>
+                           
+                           <td>{{ member.member_id}}</td>
+
+                           <td>{{ member.member_name }}</td>
+
+                           <td>{{ member.address }}</td>
+
+                           <td>{{ member.phone_no }}</td>
+
+                           <td>{{ member.site_no }}</td>
+                           
+                           </tr>
+                           
+                           {% endfor %}
+                           
+                           
+                        </tbody>
+                    </table>
+                  
+                  
+                        </div>
+                     
+               
+
+               
+            
+               
+                        
+         
+   
+            
+     
+   
+
+    
+   <!-- =============== VENDOR SCRIPTS ===============-->
+   <!-- MODERNIZR-->
+   <script src="vendor/modernizr/modernizr.custom.js"></script>
+   <!-- JQUERY-->
+   <script src="vendor/jquery/dist/jquery.js"></script>
+   <!-- BOOTSTRAP-->
+   <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="vendor/datatables/media/js/jquery.dataTables.min.js"></script>
+   <script src="vendor/datatables-colvis/js/dataTables.colVis.js"></script>
+   <script src="vendor/datatables/media/js/dataTables.bootstrap.js"></script>
+   <script src="vendor/serialize/jquery.serializejson.js"></script>
+   <!-- STORAGE API-->
+   <script src="vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
+   <!-- JQUERY EASING-->
+   <script src="vendor/jquery.easing/js/jquery.easing.js"></script>
+   <!-- ANIMO-->
+   <script src="vendor/animo.js/animo.js"></script>
+    <script src="vendor/parsley/parsley.min.js"></script>
+       <script src="vendor/sweetalert/dist/sweetalert.min.js"></script>
+   <!-- LOCALIZE-->
+   <script src="vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+   <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+   <!-- =============== APP SCRIPTS ===============-->
+   <script src="app/js/app.js"></script>
+<script src="js/patient.js"></script>
+</body>
+
+</html>
